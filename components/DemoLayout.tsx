@@ -265,7 +265,37 @@ const demoConfigs: Record<string, {
 
 export default function DemoLayout({ title }: DemoLayoutProps) {
   const config = demoConfigs[title] || demoConfigs['Luxury Real Estate']
-  const gallery = config.gallery?.images && config.gallery.images.length > 0 ? config.gallery : null
+  
+  // Ensure config exists
+  if (!config) {
+    return (
+      <main className="min-h-screen bg-dark-bg flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-black mb-4 text-white">Demo not found</h1>
+          <Link href="/demos" className="text-electric-cyan hover:text-electric-teal">
+            ← Back to Demos
+          </Link>
+        </div>
+      </main>
+    )
+  }
+  
+  // Safe gallery extraction with filtering
+  const gallery = config.gallery?.images && Array.isArray(config.gallery.images) && config.gallery.images.length > 0
+    ? {
+        title: config.gallery.title ?? 'Gallery',
+        images: config.gallery.images.filter(Boolean)
+      }
+    : null
+  
+  // Safe sections with filtering
+  const sections = (config.sections ?? []).filter(section => 
+    section && 
+    section.type && 
+    section.images && 
+    Array.isArray(section.images) && 
+    section.images.length > 0
+  )
   
   return (
     <main className="min-h-screen bg-dark-bg">
@@ -329,11 +359,17 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
       {/* Content Sections */}
       <div className="py-32 bg-dark-bg">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          {config.sections.map((section, index) => {
+          {sections.map((section, index) => {
+            const safeImages = (section.images ?? []).filter(Boolean)
+            if (!safeImages.length) return null
+            
             if (section.type === 'image-text') {
+              const firstImage = safeImages[0]
+              if (!firstImage) return null
+              
               return (
                 <motion.section
-                  key={section.title}
+                  key={`${title}-section-${index}-${section.title}`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -345,8 +381,8 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                   <div className={`${section.reverse ? 'md:col-start-2' : ''}`}>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-sm">
                       <img
-                        src={section.images[0]}
-                        alt={section.title}
+                        src={firstImage}
+                        alt={section.title ?? `${title} image`}
                         className="w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/20 to-transparent" />
@@ -371,7 +407,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
             if (section.type === 'cards') {
               return (
                 <motion.section
-                  key={section.title}
+                  key={`${title}-section-${index}-${section.title}`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -379,15 +415,15 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                   className="mb-32"
                 >
                   <h2 className="text-5xl sm:text-6xl font-black mb-4 text-white text-center">
-                    {section.title}
+                    {section.title ?? 'Featured'}
                   </h2>
                   <p className="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-                    {section.content}
+                    {section.content ?? ''}
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {section.images.map((img, i) => (
+                    {safeImages.map((img, i) => (
                       <motion.div
-                        key={i}
+                        key={`${title}-card-${index}-${i}`}
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -397,13 +433,13 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                         <div className="relative aspect-[4/3] overflow-hidden mb-4">
                           <img
                             src={img}
-                            alt={`${section.title} ${i + 1}`}
+                            alt={`${section.title ?? title} ${i + 1}`}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-dark-bg/60 via-transparent to-transparent" />
                         </div>
                         <h3 className="text-xl font-bold text-white mb-2">
-                          {section.title} {i + 1}
+                          {section.title ?? 'Feature'} {i + 1}
                         </h3>
                         <p className="text-gray-400">
                           Premium quality and attention to detail
@@ -418,7 +454,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
             if (section.type === 'gallery') {
               return (
                 <motion.section
-                  key={section.title}
+                  key={`${title}-section-${index}-${section.title}`}
                   initial={{ opacity: 0, y: 50 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -426,15 +462,15 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                   className="mb-32"
                 >
                   <h2 className="text-5xl sm:text-6xl font-black mb-4 text-white text-center">
-                    {section.title}
+                    {section.title ?? 'Gallery'}
                   </h2>
                   <p className="text-xl text-gray-400 text-center mb-12">
-                    {section.content}
+                    {section.content ?? ''}
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {section.images.map((img, i) => (
+                    {safeImages.map((img, i) => (
                       <motion.div
-                        key={i}
+                        key={`${title}-gallery-${index}-${i}`}
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -444,7 +480,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                         <div className="relative aspect-square overflow-hidden">
                           <img
                             src={img}
-                            alt={`${section.title} ${i + 1}`}
+                            alt={`${section.title ?? title} gallery ${i + 1}`}
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-electric-cyan/0 group-hover:bg-electric-cyan/20 transition-colors" />
@@ -455,6 +491,8 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                 </motion.section>
               )
             }
+            
+            return null
           })}
           
           {/* Gallery Section if exists */}
@@ -472,7 +510,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {gallery.images.map((img, i) => (
                   <motion.div
-                    key={i}
+                    key={`${title}-gallery-main-${i}`}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
