@@ -101,7 +101,7 @@ export default function StartProjectPage() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 text-center glow-text px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
-            Request a Build
+            Get a Quote
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center mb-12 sm:mb-16 px-4 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             Tell us about your brand and goals. We'll craft something unforgettable.
@@ -289,7 +289,7 @@ export default function StartProjectPage() {
                   Sending Request...
                 </>
               ) : (
-                'Submit Build Request'
+                'Get a Quote'
               )}
             </motion.button>
           </form>

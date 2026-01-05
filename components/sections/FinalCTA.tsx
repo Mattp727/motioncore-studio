@@ -125,7 +125,7 @@ export default function FinalCTA() {
                   repeatType: 'reverse',
                 }}
               />
-              <span className="relative z-10 glow-text">Request a Build</span>
+                  <span className="relative z-10 glow-text">Get a Quote</span>
               
               {/* Shimmer effect */}
               <motion.div

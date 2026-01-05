@@ -632,7 +632,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
             href="/start-project"
             className="inline-block px-6 sm:px-12 py-4 sm:py-5 bg-electric-cyan text-dark-bg font-black text-xs sm:text-sm uppercase tracking-wider hover:bg-electric-teal transition-colors glow-text shadow-lg shadow-electric-cyan/50 w-full sm:w-auto"
           >
-            Request a Build
+            Get a Quote
           </Link>
         </div>
       </section>

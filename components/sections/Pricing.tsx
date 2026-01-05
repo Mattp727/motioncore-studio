@@ -9,7 +9,7 @@ const plans = [
     description: 'Starting at a competitive rate',
     features: [
       '1-page website (desktop + mobile)',
-      '1 lead capture form',
+      'High-converting lead capture funnel',
       '3 social media assets (avatar + 2 highlight covers)',
       '1 email signature design',
       'Delivery within 2 weeks',
@@ -21,7 +21,7 @@ const plans = [
     description: 'Most popular',
     features: [
       'Up to 5-page website (desktop + mobile)',
-      '1 booking system OR 2 lead capture forms',
+      '1 booking system OR 2 high-converting lead funnels',
       '10 social media assets (avatar + 9 highlight covers)',
       '1 Google Business profile cover',
       '1 email signature design',
@@ -131,7 +131,7 @@ export default function Pricing() {
                       : 'border-2 border-electric-cyan/50 text-electric-cyan hover:bg-electric-cyan/10 hover:border-electric-cyan'
                   }`}
                 >
-                  Get Started
+                  Get a Quote
                 </Link>
               </div>
               

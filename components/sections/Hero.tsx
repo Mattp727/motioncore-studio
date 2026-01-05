@@ -252,7 +252,7 @@ export default function Hero() {
               className="absolute inset-0 bg-electric-cyan/10 group-hover:bg-electric-cyan/20 transition-colors"
               initial={false}
             />
-            <span className="relative z-10">Request a Build</span>
+            <span className="relative z-10">Get a Quote</span>
             {/* Subtle gold accent on hover */}
             <motion.div
               className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-gold-mid to-transparent opacity-0 group-hover:opacity-60 transition-opacity"
