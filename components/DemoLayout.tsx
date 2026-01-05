@@ -265,7 +265,7 @@ const demoConfigs: Record<string, {
 
 export default function DemoLayout({ title }: DemoLayoutProps) {
   const config = demoConfigs[title] || demoConfigs['Luxury Real Estate']
-  const gallery = config.gallery && config.gallery.images && config.gallery.images.length > 0 ? config.gallery : null
+  const gallery = config.gallery?.images && config.gallery.images.length > 0 ? config.gallery : null
   
   return (
     <main className="min-h-screen bg-dark-bg">
