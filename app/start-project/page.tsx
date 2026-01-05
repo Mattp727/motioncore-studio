@@ -94,16 +94,16 @@ export default function StartProjectPage() {
         <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-electric-blue/20 rounded-full blur-3xl" />
       </div>
       
-      <div className="relative z-10 max-w-2xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-2xl mx-auto px-4 sm:px-6 lg:px-12 w-full overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 text-center glow-text">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 sm:mb-6 text-center glow-text px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             Request a Build
           </h1>
-          <p className="text-xl text-gray-300 text-center mb-16">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center mb-12 sm:mb-16 px-4 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             Tell us about your brand and goals. We'll craft something unforgettable.
           </p>
 

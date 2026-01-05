@@ -26,10 +26,10 @@ export default function Navigation() {
     >
       {/* Subtle gold accent line */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-mid/30 to-transparent" />
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="flex items-center justify-between h-24">
-          <Link href="/" className="group relative flex items-center">
-            <div className="relative w-48 h-12 sm:w-60 sm:h-14 lg:w-64 lg:h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full overflow-hidden">
+        <div className="flex items-center justify-between h-20 sm:h-24">
+          <Link href="/" className="group relative flex items-center flex-shrink-0">
+            <div className="relative w-32 h-8 sm:w-48 sm:h-12 md:w-60 md:h-14 lg:w-64 lg:h-16">
               <Image
                 src="/logo/motioncore-logo.png"
                 alt="MotionCore Studio"

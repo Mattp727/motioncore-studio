@@ -34,20 +34,21 @@ const services = [
 
 export default function WhatWeDo() {
   return (
-    <section className="relative py-40 px-6 sm:px-8 lg:px-12 bg-dark-surface overflow-hidden">
+    <section className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6 lg:px-12 bg-dark-surface overflow-hidden w-full">
       {/* Background energy effect */}
-      <div className="absolute inset-0 opacity-30">
+      <div className="absolute inset-0 opacity-30 pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-electric-cyan/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-electric-blue/10 rounded-full blur-3xl" />
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto w-full overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-5xl sm:text-6xl font-black text-center mb-8 glow-text"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-center mb-6 sm:mb-8 glow-text px-2 break-words"
+          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           What We Build
         </motion.h2>
@@ -57,12 +58,13 @@ export default function WhatWeDo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl text-gray-400 text-center mb-20 max-w-2xl mx-auto"
+          className="text-base sm:text-lg md:text-xl text-gray-400 text-center mb-12 sm:mb-20 max-w-2xl mx-auto px-4 break-words"
+          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           Everything your brand needs to dominate online — designed to make you look inevitable.
         </motion.p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
           {services.map((service, index) => (
             <motion.div
               key={service.title}

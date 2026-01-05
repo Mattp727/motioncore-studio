@@ -161,19 +161,20 @@ function PremiumMockup() {
 
 export default function BeforeAfter() {
   return (
-    <section className="relative py-40 px-6 sm:px-8 lg:px-12 bg-dark-surface overflow-hidden">
+    <section className="relative py-20 sm:py-32 lg:py-40 px-4 sm:px-6 lg:px-12 bg-dark-surface overflow-hidden w-full">
       {/* Background effect */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-30 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-electric-cyan/10 rounded-full blur-3xl" />
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto w-full overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-5xl sm:text-6xl lg:text-7xl font-black text-center mb-8 glow-text"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-center mb-6 sm:mb-8 glow-text px-2 break-words"
+          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           This is the difference.
         </motion.h2>
@@ -183,12 +184,13 @@ export default function BeforeAfter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl text-gray-400 text-center mb-20 max-w-2xl mx-auto"
+          className="text-base sm:text-lg md:text-xl text-gray-400 text-center mb-12 sm:mb-20 max-w-2xl mx-auto px-4 break-words"
+          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           Generic templates kill trust. Premium design builds empires.
         </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* BEFORE - Generic Website Mockup */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -273,9 +275,9 @@ export default function BeforeAfter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-center mt-20"
+          className="text-center mt-12 sm:mt-20 px-4"
         >
-          <p className="text-2xl sm:text-3xl text-gray-300 font-medium mb-8">
+          <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 font-medium mb-8 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             Which one would <span className="text-electric-cyan glow-text">you</span> trust with your money?
           </p>
         </motion.div>

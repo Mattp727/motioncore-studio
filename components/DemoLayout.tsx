@@ -300,8 +300,8 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
   return (
     <main className="min-h-screen bg-dark-bg">
       {/* Demo Header */}
-      <div className="border-b border-electric-cyan/20 bg-dark-surface/50 backdrop-blur-sm sticky top-24 z-40">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
+      <div className="border-b border-electric-cyan/20 bg-dark-surface/50 backdrop-blur-sm sticky top-20 sm:top-24 z-40 overflow-hidden w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 w-full">
           <div className="flex items-center justify-between">
             <Link
               href="/demos"
@@ -327,12 +327,13 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-dark-bg/80 via-dark-bg/60 to-dark-bg/90" />
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center w-full overflow-hidden">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-6xl sm:text-7xl lg:text-8xl font-black mb-6 text-white leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black mb-4 sm:mb-6 text-white leading-tight px-2 break-words"
+            style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
           >
             {config.heroHeadline}
           </motion.h1>
@@ -340,7 +341,8 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-2xl sm:text-3xl text-gray-200 mb-12 max-w-4xl mx-auto font-light"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-200 mb-8 sm:mb-12 max-w-4xl mx-auto font-light px-4 break-words"
+            style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
           >
             {config.heroSubhead}
           </motion.p>
@@ -348,8 +350,9 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            className="px-4"
           >
-            <button className="px-12 py-5 bg-electric-cyan text-dark-bg font-black text-lg uppercase tracking-wider hover:bg-electric-teal transition-colors shadow-lg shadow-electric-cyan/50">
+            <button className="px-6 sm:px-12 py-4 sm:py-5 bg-electric-cyan text-dark-bg font-black text-sm sm:text-lg uppercase tracking-wider hover:bg-electric-teal transition-colors shadow-lg shadow-electric-cyan/50 w-full sm:w-auto">
               {config.heroCTA}
             </button>
           </motion.div>
@@ -357,8 +360,8 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
       </section>
 
       {/* Content Sections */}
-      <div className="py-32 bg-dark-bg">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="py-16 sm:py-24 lg:py-32 bg-dark-bg overflow-hidden w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
           {sections.map((section, index) => {
             const safeImages = (section.images ?? []).filter(Boolean)
             if (!safeImages.length) return null
@@ -390,13 +393,13 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                   </div>
                   
                   <div className={`${section.reverse ? 'md:col-start-1 md:row-start-1' : ''}`}>
-                    <h2 className="text-5xl sm:text-6xl font-black mb-6 text-white">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 text-white break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                       {section.title}
                     </h2>
-                    <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                    <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed mb-6 sm:mb-8 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                       {section.content}
                     </p>
-                    <button className="px-8 py-4 border-2 border-electric-cyan/50 text-electric-cyan font-bold text-sm uppercase tracking-wider hover:bg-electric-cyan/10 transition-all">
+                    <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-electric-cyan/50 text-electric-cyan font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-electric-cyan/10 transition-all w-full sm:w-auto">
                       Learn More
                     </button>
                   </div>
@@ -414,10 +417,10 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                   transition={{ duration: 0.8 }}
                   className="mb-32"
                 >
-                  <h2 className="text-5xl sm:text-6xl font-black mb-4 text-white text-center">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 text-white text-center px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                     {section.title ?? 'Featured'}
                   </h2>
-                  <p className="text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-400 text-center mb-8 sm:mb-12 max-w-2xl mx-auto px-4 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                     {section.content ?? ''}
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -504,7 +507,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
               transition={{ duration: 0.8 }}
               className="mb-32"
             >
-              <h2 className="text-5xl sm:text-6xl font-black mb-12 text-white text-center">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 text-white text-center px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                 {gallery.title ?? 'Gallery'}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
@@ -534,18 +537,18 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
       </div>
 
       {/* Final CTA */}
-      <section className="relative py-32 px-6 sm:px-8 lg:px-12 bg-dark-surface overflow-hidden">
+      <section className="relative py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-12 bg-dark-surface overflow-hidden w-full">
         <div className="absolute inset-0 bg-electric-cyan/5" />
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl sm:text-6xl font-black mb-8 text-white glow-text">
+        <div className="relative z-10 max-w-4xl mx-auto text-center w-full overflow-hidden">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white glow-text px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             Want this for your brand?
           </h2>
-          <p className="text-xl text-gray-300 mb-12">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-8 sm:mb-12 px-4 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
             This is just a preview. Your custom site will be built specifically for your business.
           </p>
           <Link
             href="/start-project"
-            className="inline-block px-12 py-5 bg-electric-cyan text-dark-bg font-black text-sm uppercase tracking-wider hover:bg-electric-teal transition-colors glow-text shadow-lg shadow-electric-cyan/50"
+            className="inline-block px-6 sm:px-12 py-4 sm:py-5 bg-electric-cyan text-dark-bg font-black text-xs sm:text-sm uppercase tracking-wider hover:bg-electric-teal transition-colors glow-text shadow-lg shadow-electric-cyan/50 w-full sm:w-auto"
           >
             Request a Build
           </Link>

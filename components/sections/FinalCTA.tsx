@@ -55,13 +55,14 @@ export default function FinalCTA() {
         />
       ))}
 
-      <div className="relative z-10 max-w-5xl mx-auto text-center">
+      <div className="relative z-10 max-w-5xl mx-auto text-center px-4 w-full overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-5xl sm:text-6xl lg:text-8xl font-black mb-8 glow-text"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-8xl font-black mb-6 sm:mb-8 glow-text break-words"
+          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           Stop blending in.
         </motion.h2>
@@ -71,7 +72,8 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl sm:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto break-words"
+          style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           Your competitors are still using templates. Be the brand that makes them look amateur.
         </motion.p>
@@ -81,10 +83,11 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full sm:w-auto"
         >
           <Link href="/start-project">
             <motion.div
-              className="relative inline-block px-16 py-6 bg-electric-cyan text-dark-bg font-black text-sm uppercase tracking-wider overflow-hidden group"
+              className="relative inline-block px-8 sm:px-16 py-4 sm:py-6 bg-electric-cyan text-dark-bg font-black text-xs sm:text-sm uppercase tracking-wider overflow-hidden group w-full sm:w-auto"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
