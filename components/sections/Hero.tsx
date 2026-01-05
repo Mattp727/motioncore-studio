@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-full">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-full py-16 sm:py-20 md:py-24">
       {/* ========== BACKGROUND LAYER - z-index: 0 ========== */}
       {/* All decorative visuals MUST be in this layer, behind content */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none" style={{ contain: 'paint' }}>
@@ -136,13 +136,13 @@ export default function Hero() {
 
       {/* ========== CONTENT LAYER - z-index: 10 ========== */}
       {/* All text, buttons, and interactive elements MUST be in this layer */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center w-full max-w-full overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center w-full max-w-full overflow-hidden pt-8 sm:pt-12 pb-8 sm:pb-12">
         {/* Logo - with its own glow effects contained */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mb-6 sm:mb-8 relative w-full max-w-full"
+          className="mb-8 sm:mb-10 md:mb-12 relative w-full max-w-full"
         >
           <div className="relative mx-auto max-w-full overflow-hidden">
             {/* Logo glow effects - contained within logo area */}
@@ -178,31 +178,31 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Headline - UPGRADED COPY - Mobile responsive with text wrapping */}
+        {/* Headline - Business-focused copy */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
           className="font-black mb-4 sm:mb-6 tracking-tight glow-text px-2 break-words whitespace-normal text-center leading-[1.05] mx-auto"
           style={{ 
-            fontSize: 'clamp(2.2rem, 7vw, 4.5rem)',
+            fontSize: 'clamp(2rem, 6.5vw, 4.2rem)',
             wordWrap: 'break-word', 
             overflowWrap: 'break-word',
-            maxWidth: 'min(22ch, 90vw)',
+            maxWidth: 'min(28ch, 92vw)',
           }}
         >
-          Web presence that feels inevitable.
+          Premium Websites That Make Your Competitors Look Amateur.
         </motion.h1>
 
-        {/* Subheadline - UPGRADED COPY - Mobile responsive */}
+        {/* Subheadline - Business outcomes focused */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-[min(28ch,90vw)] sm:max-w-[min(32ch,90vw)] mx-auto leading-relaxed px-4 break-words whitespace-normal"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-[min(36ch,92vw)] sm:max-w-[min(42ch,92vw)] mx-auto leading-relaxed px-4 break-words whitespace-normal"
           style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
-          High-impact websites + social systems built to make your brand look inevitable — and make customers act.
+          We design high-impact websites and brand systems for businesses that want more calls, more bookings, and real authority — not templates.
         </motion.p>
 
         {/* CTAs - UPGRADED LABELS - Mobile responsive */}
