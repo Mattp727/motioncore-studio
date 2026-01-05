@@ -1,115 +1,118 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion()
+  
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-full py-16 sm:py-20 md:py-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden w-full max-w-full pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-32 md:pb-24">
       {/* ========== BACKGROUND LAYER - z-index: 0 ========== */}
       {/* All decorative visuals MUST be in this layer, behind content */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none" style={{ contain: 'paint' }}>
-        {/* Radial gradient core */}
+      {/* Simplified/disabled on mobile for performance */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none hidden sm:block" style={{ contain: 'paint' }}>
+        {/* Radial gradient core - Static on mobile */}
         <motion.div
           className="absolute top-1/2 left-1/2 w-[min(1000px,100vw)] h-[min(1000px,100vw)] -translate-x-1/2 -translate-y-1/2 bg-radial-gradient-strong"
           style={{ contain: 'paint' }}
-          animate={{
+          animate={shouldReduceMotion ? {} : {
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.5, 0.3],
           }}
-          transition={{
+          transition={shouldReduceMotion ? {} : {
             duration: 6,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         />
         
-        {/* Electric cyan glow */}
+        {/* Electric cyan glow - Static on mobile */}
         <motion.div
           className="absolute top-1/2 left-1/2 w-[min(600px,100vw)] h-[min(600px,100vw)] -translate-x-1/2 -translate-y-1/2 bg-electric-cyan/15 rounded-full blur-[100px]"
           style={{ contain: 'paint' }}
-          animate={{
+          animate={shouldReduceMotion ? {} : {
             scale: [1, 1.4, 1],
             opacity: [0.2, 0.4, 0.2],
           }}
-          transition={{
+          transition={shouldReduceMotion ? {} : {
             duration: 4,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         />
         
-        {/* Blue accent glow */}
+        {/* Blue accent glow - Static on mobile */}
         <motion.div
           className="absolute top-1/2 left-1/2 w-[min(800px,100vw)] h-[min(800px,100vw)] -translate-x-1/2 -translate-y-1/2 bg-electric-blue/10 rounded-full blur-[120px]"
           style={{ contain: 'paint' }}
-          animate={{
+          animate={shouldReduceMotion ? {} : {
             scale: [1.2, 1, 1.2],
             opacity: [0.15, 0.3, 0.15],
           }}
-          transition={{
+          transition={shouldReduceMotion ? {} : {
             duration: 5,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         />
 
-        {/* Outer orbital ring - Aurora Purple Glow */}
+        {/* Outer orbital ring - Disabled on mobile */}
         <motion.div
-          className="absolute top-1/2 left-1/2 w-[min(400px,90vw)] h-[min(400px,90vw)] sm:w-[min(500px,90vw)] sm:h-[min(500px,90vw)] lg:w-[min(600px,90vw)] lg:h-[min(600px,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60"
+          className="absolute top-1/2 left-1/2 w-[min(500px,90vw)] h-[min(500px,90vw)] lg:w-[min(600px,90vw)] lg:h-[min(600px,90vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
           style={{
             border: '1px solid transparent',
             background: 'linear-gradient(#000000, #000000) padding-box, linear-gradient(135deg, rgba(139, 92, 246, 0.4), rgba(168, 85, 247, 0.3), rgba(34, 211, 238, 0.2)) border-box',
             filter: 'drop-shadow(0 0 8px rgba(139, 92, 246, 0.3)) drop-shadow(0 0 16px rgba(168, 85, 247, 0.2))',
             contain: 'paint',
           }}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+          animate={shouldReduceMotion ? {} : { rotate: 360 }}
+          transition={shouldReduceMotion ? {} : { duration: 20, repeat: Infinity, ease: 'linear' }}
         >
           <div className="absolute top-0 left-1/2 w-2 h-2 -translate-x-1/2 rounded-full blur-sm" style={{ background: 'linear-gradient(135deg, #8B5CF6, #22D3EE)' }} />
         </motion.div>
         
-        {/* Middle orbital ring - Aurora Violet Glow */}
+        {/* Middle orbital ring - Disabled on mobile */}
         <motion.div
-          className="absolute top-1/2 left-1/2 w-[min(320px,80vw)] h-[min(320px,80vw)] sm:w-[min(400px,80vw)] sm:h-[min(400px,80vw)] lg:w-[min(480px,80vw)] lg:h-[min(480px,80vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-60"
+          className="absolute top-1/2 left-1/2 w-[min(400px,80vw)] lg:w-[min(480px,80vw)] lg:h-[min(480px,80vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40"
           style={{
             border: '1px solid transparent',
             background: 'linear-gradient(#000000, #000000) padding-box, linear-gradient(135deg, rgba(168, 85, 247, 0.5), rgba(91, 33, 182, 0.3), rgba(34, 211, 238, 0.3)) border-box',
             filter: 'drop-shadow(0 0 6px rgba(168, 85, 247, 0.4)) drop-shadow(0 0 12px rgba(34, 211, 238, 0.3))',
             contain: 'paint',
           }}
-          animate={{ rotate: -360 }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+          animate={shouldReduceMotion ? {} : { rotate: -360 }}
+          transition={shouldReduceMotion ? {} : { duration: 15, repeat: Infinity, ease: 'linear' }}
         >
           <div className="absolute top-0 left-1/2 w-1.5 h-1.5 -translate-x-1/2 rounded-full blur-sm" style={{ background: 'linear-gradient(135deg, #A855F7, #22D3EE)' }} />
         </motion.div>
         
-        {/* Inner energy ring - Aurora Cyan Accent */}
+        {/* Inner energy ring - Static on mobile */}
         <motion.div
-          className="absolute top-1/2 left-1/2 w-[min(240px,70vw)] h-[min(240px,70vw)] sm:w-[min(300px,70vw)] sm:h-[min(300px,70vw)] lg:w-[min(360px,70vw)] lg:h-[min(360px,70vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50"
+          className="absolute top-1/2 left-1/2 w-[min(300px,70vw)] lg:w-[min(360px,70vw)] lg:h-[min(360px,70vw)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-30"
           style={{
             border: '2px solid transparent',
             background: 'linear-gradient(#000000, #000000) padding-box, linear-gradient(135deg, rgba(139, 92, 246, 0.6), rgba(34, 211, 238, 0.5)) border-box',
             filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.5)) drop-shadow(0 0 20px rgba(34, 211, 238, 0.4))',
             contain: 'paint',
           }}
-          animate={{
+          animate={shouldReduceMotion ? {} : {
             scale: [1, 1.05, 1],
-            opacity: [0.4, 0.6, 0.4],
+            opacity: [0.3, 0.5, 0.3],
           }}
-          transition={{
+          transition={shouldReduceMotion ? {} : {
             duration: 2,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         />
         
-        {/* Subtle energy particles - Aurora Purple/Cyan */}
+        {/* Energy particles - Disabled on mobile */}
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full"
+            className="absolute top-1/2 left-1/2 w-1.5 h-1.5 rounded-full hidden lg:block"
             style={{
               transformOrigin: '0 0',
               background: i % 2 === 0 
@@ -117,14 +120,14 @@ export default function Hero() {
                 : 'linear-gradient(135deg, #A855F7, #22D3EE)',
               filter: 'drop-shadow(0 0 4px rgba(139, 92, 246, 0.6))',
             }}
-            animate={{
+            animate={shouldReduceMotion ? {} : {
               rotate: [i * 45, i * 45 + 360],
               x: [0, 0, 0],
               y: [-100, -100, -100],
               scale: [0, 1.5, 0],
               opacity: [0, 0.8, 0],
             }}
-            transition={{
+            transition={shouldReduceMotion ? {} : {
               duration: 4,
               repeat: Infinity,
               delay: i * 0.15,
@@ -133,10 +136,15 @@ export default function Hero() {
           />
         ))}
       </div>
+      
+      {/* Mobile-only simplified background */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none sm:hidden" style={{ contain: 'paint' }}>
+        <div className="absolute top-1/2 left-1/2 w-[80vw] h-[80vw] -translate-x-1/2 -translate-y-1/2 bg-electric-cyan/10 rounded-full blur-3xl opacity-30" />
+      </div>
 
       {/* ========== CONTENT LAYER - z-index: 10 ========== */}
       {/* All text, buttons, and interactive elements MUST be in this layer */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center w-full max-w-full overflow-hidden pt-8 sm:pt-12 pb-8 sm:pb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 text-center w-full max-w-full overflow-hidden pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
         {/* Logo - with its own glow effects contained */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -145,15 +153,15 @@ export default function Hero() {
           className="mb-8 sm:mb-10 md:mb-12 relative w-full max-w-full"
         >
           <div className="relative mx-auto max-w-full overflow-hidden">
-            {/* Logo glow effects - contained within logo area */}
+            {/* Logo glow effects - Simplified on mobile */}
             <motion.div
-              className="absolute inset-0 -z-10"
+              className="absolute inset-0 -z-10 hidden sm:block"
               style={{ contain: 'paint' }}
-              animate={{
+              animate={shouldReduceMotion ? {} : {
                 scale: [1, 1.15, 1],
                 opacity: [0.3, 0.5, 0.3],
               }}
-              transition={{
+              transition={shouldReduceMotion ? {} : {
                 duration: 2,
                 repeat: Infinity,
                 ease: 'easeInOut',
@@ -161,9 +169,13 @@ export default function Hero() {
             >
               <div className="w-full h-full bg-electric-cyan/30 blur-[150px] rounded-full" />
             </motion.div>
+            {/* Static glow for mobile */}
+            <div className="absolute inset-0 -z-10 sm:hidden">
+              <div className="w-full h-full bg-electric-cyan/20 blur-[100px] rounded-full opacity-50" />
+            </div>
             
-            {/* Logo Image - Mobile responsive sizing */}
-            <div className="relative w-full max-w-[85vw] sm:max-w-[600px] lg:max-w-[960px] aspect-square mx-auto">
+            {/* Logo Image - Reduced size on mobile */}
+            <div className="relative w-full max-w-[65vw] sm:max-w-[600px] lg:max-w-[960px] aspect-square mx-auto">
               <Image
                 src="/logo/motioncore-logo.png"
                 alt="MotionCore Studio"
