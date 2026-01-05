@@ -72,11 +72,27 @@ export default function FinalCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-2xl mx-auto break-words"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto break-words"
           style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
           Your competitors are still using templates. Be the brand that makes them look amateur.
         </motion.p>
+
+        {/* Pricing Transparency */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.15 }}
+          className="mb-8 sm:mb-12"
+        >
+          <p className="text-lg sm:text-xl text-gray-300 font-semibold mb-2">
+            Packages start at $1,500
+          </p>
+          <p className="text-sm sm:text-base text-gray-400">
+            Most projects range between $1,500–$3,500 depending on scope
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
