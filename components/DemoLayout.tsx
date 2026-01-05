@@ -13,6 +13,7 @@ const demoConfigs: Record<string, {
   heroSubhead: string
   heroCTA: string
   accentColor: string
+  whyWins: string[]
   sections: Array<{
     type: 'image-text' | 'gallery' | 'cards'
     title: string
@@ -31,6 +32,13 @@ const demoConfigs: Record<string, {
     heroSubhead: 'Discover luxury real estate in the world\'s most desirable locations',
     heroCTA: 'View Properties',
     accentColor: 'amber',
+    whyWins: [
+      'Hero section uses high-value imagery to immediately establish premium positioning, filtering for clients who appreciate quality',
+      'Property cards prioritize visual impact over text, allowing listings to sell themselves through photography',
+      'Mobile-first responsive design ensures luxury clients can browse seamlessly on any device',
+      'Strategic CTA placement ("View Properties") appears above the fold and after each property section, maximizing engagement',
+      'Trust signals (testimonials, certifications) positioned mid-page to reinforce credibility after initial interest',
+    ],
     sections: [
       {
         type: 'image-text',
@@ -75,6 +83,13 @@ const demoConfigs: Record<string, {
     heroSubhead: 'Master barbers. Premium products. Unforgettable experience.',
     heroCTA: 'Book Appointment',
     accentColor: 'purple',
+    whyWins: [
+      'Integrated booking system reduces friction — clients can schedule without leaving the page',
+      'Before/after gallery showcases skill and builds trust through visual proof',
+      'Mobile-optimized booking form appears sticky on scroll, capturing leads even after browsing',
+      'Service cards highlight premium pricing strategy, positioning the business as high-end',
+      'Social proof (reviews/testimonials) placed strategically near booking CTA to overcome hesitation',
+    ],
     sections: [
       {
         type: 'image-text',
@@ -112,6 +127,13 @@ const demoConfigs: Record<string, {
     heroSubhead: 'State-of-the-art equipment. Expert trainers. Unstoppable results.',
     heroCTA: 'Start Training',
     accentColor: 'red',
+    whyWins: [
+      'Program cards use benefit-driven headlines ("Build Muscle", "Lose Weight") to match visitor intent',
+      'Lead capture form appears in multiple locations with low-friction fields (name, email, goal)',
+      'Transformation gallery creates emotional connection and demonstrates results',
+      'Mobile layout stacks program cards vertically for easy comparison and tap-to-expand details',
+      'Urgency elements (limited spots, early-bird pricing) positioned near CTA to drive immediate action',
+    ],
     sections: [
       {
         type: 'image-text',
@@ -156,6 +178,13 @@ const demoConfigs: Record<string, {
     heroSubhead: 'Seasonal menus. Locally sourced. Expertly crafted.',
     heroCTA: 'Reserve Table',
     accentColor: 'emerald',
+    whyWins: [
+      'Food photography dominates hero section to trigger appetite and emotional response',
+      'Reservation system integrated above the fold — reduces steps from interest to booking',
+      'Menu preview with high-quality images helps diners make decisions before arrival',
+      'Mobile reservation form uses native date/time pickers for seamless mobile experience',
+      'Social proof (awards, press mentions) positioned to justify premium pricing',
+    ],
     sections: [
       {
         type: 'image-text',
@@ -193,6 +222,13 @@ const demoConfigs: Record<string, {
     heroSubhead: 'Original art. Limited prints. Custom commissions.',
     heroCTA: 'View Portfolio',
     accentColor: 'blue',
+    whyWins: [
+      'Full-screen image galleries prioritize visual work over navigation, letting art speak first',
+      'Contact form appears after portfolio viewing, capturing leads who are already invested',
+      'Mobile gallery uses swipe gestures and lazy loading for smooth, fast browsing',
+      'Project descriptions use storytelling format to build emotional connection with potential clients',
+      'Pricing/commission info clearly displayed to filter serious inquiries and reduce back-and-forth',
+    ],
     sections: [
       {
         type: 'image-text',
@@ -230,6 +266,13 @@ const demoConfigs: Record<string, {
     heroSubhead: 'Licensed. Insured. Committed to excellence.',
     heroCTA: 'Get Free Quote',
     accentColor: 'indigo',
+    whyWins: [
+      'Trust badges (licensed, insured) prominently displayed in hero to overcome local business skepticism',
+      'Project gallery organized by service type helps visitors quickly find relevant examples',
+      'Quote request form uses progressive disclosure — simple fields first, details optional',
+      'Mobile form optimized for thumb navigation with large tap targets and auto-fill support',
+      'Service area clearly stated to filter out-of-area leads and set proper expectations',
+    ],
     sections: [
       {
         type: 'image-text',
@@ -355,6 +398,45 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
             <button className="px-6 sm:px-12 py-4 sm:py-5 bg-electric-cyan text-dark-bg font-black text-sm sm:text-lg uppercase tracking-wider hover:bg-electric-teal transition-colors shadow-lg shadow-electric-cyan/50 w-full sm:w-auto">
               {config.heroCTA}
             </button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Why This Design Wins Section */}
+      <section className="relative py-16 sm:py-24 lg:py-32 bg-dark-surface overflow-hidden w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 sm:mb-8 text-white text-center px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+              Why This Design Wins
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-400 text-center mb-12 sm:mb-16 max-w-3xl mx-auto px-4 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+              Every element is engineered to convert visitors into clients. Here's the strategic thinking behind this design.
+            </p>
+            
+            <div className="max-w-4xl mx-auto space-y-6">
+              {(config.whyWins ?? []).map((point, index) => (
+                <motion.div
+                  key={`why-wins-${index}`}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="flex items-start gap-4 p-6 bg-dark-bg/50 border border-electric-cyan/20 rounded-sm hover:border-electric-cyan/40 transition-colors"
+                >
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-electric-cyan/20 flex items-center justify-center mt-1">
+                    <div className="w-2 h-2 rounded-full bg-electric-cyan" />
+                  </div>
+                  <p className="text-base sm:text-lg text-gray-300 leading-relaxed flex-1 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
+                    {point}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </section>

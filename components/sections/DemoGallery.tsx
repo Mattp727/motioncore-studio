@@ -29,7 +29,7 @@ export default function DemoGallery() {
           transition={{ duration: 0.8 }}
           className="text-5xl sm:text-6xl lg:text-7xl font-black text-center mb-20 glow-text"
         >
-          Pick a vibe. This could be yours.
+          Select Your Industry System
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

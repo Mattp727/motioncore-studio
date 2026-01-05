@@ -190,7 +190,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Headline - Business-focused copy */}
+        {/* Headline - Authority-focused copy */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -203,10 +203,10 @@ export default function Hero() {
             maxWidth: 'min(28ch, 92vw)',
           }}
         >
-          Premium Websites That Make Your Competitors Look Amateur.
+          The Anti-Template Agency for Market Leaders.
         </motion.h1>
 
-        {/* Subheadline - Business outcomes focused */}
+        {/* Subheadline - Differentiation and business outcomes */}
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -214,7 +214,7 @@ export default function Hero() {
           className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 sm:mb-12 max-w-[min(36ch,92vw)] sm:max-w-[min(42ch,92vw)] mx-auto leading-relaxed px-4 break-words whitespace-normal"
           style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}
         >
-          We design high-impact websites and brand systems for businesses that want more calls, more bookings, and real authority — not templates.
+          Custom websites and brand systems built to attract higher-quality clients — not blend in.
         </motion.p>
 
         {/* CTAs - UPGRADED LABELS - Mobile responsive */}
