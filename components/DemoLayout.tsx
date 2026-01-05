@@ -464,10 +464,10 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                   transition={{ duration: 0.8 }}
                   className="mb-32"
                 >
-                  <h2 className="text-5xl sm:text-6xl font-black mb-4 text-white text-center">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 text-white text-center px-2 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                     {section.title ?? 'Gallery'}
                   </h2>
-                  <p className="text-xl text-gray-400 text-center mb-12">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-400 text-center mb-8 sm:mb-12 px-4 break-words" style={{ wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                     {section.content ?? ''}
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
