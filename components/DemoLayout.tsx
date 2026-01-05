@@ -265,6 +265,7 @@ const demoConfigs: Record<string, {
 
 export default function DemoLayout({ title }: DemoLayoutProps) {
   const config = demoConfigs[title] || demoConfigs['Luxury Real Estate']
+  const gallery = config.gallery && config.gallery.images && config.gallery.images.length > 0 ? config.gallery : null
   
   return (
     <main className="min-h-screen bg-dark-bg">
@@ -457,7 +458,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
           })}
           
           {/* Gallery Section if exists */}
-          {config.gallery && config.gallery.images && config.gallery.images.length > 0 && (
+          {gallery && (
             <motion.section
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -466,10 +467,10 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
               className="mb-32"
             >
               <h2 className="text-5xl sm:text-6xl font-black mb-12 text-white text-center">
-                {config.gallery?.title ?? 'Gallery'}
+                {gallery.title ?? 'Gallery'}
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {(config.gallery?.images ?? []).map((img, i) => (
+                {gallery.images.map((img, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -481,7 +482,7 @@ export default function DemoLayout({ title }: DemoLayoutProps) {
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={img}
-                        alt={`${config.gallery?.title ?? 'Gallery'} ${i + 1}`}
+                        alt={`${gallery.title ?? title ?? 'MotionCore Demo'} ${i + 1}`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-electric-cyan/0 group-hover:bg-electric-cyan/20 transition-colors" />
